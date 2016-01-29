@@ -2,6 +2,7 @@
   font: 100%/1.4 serif;
   margin: 0;
   padding: 0;
+  outline: 0;
 }
 
 html {
@@ -12,7 +13,7 @@ html {
 }
 
 h1 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   margin-bottom: 5px;
 }
 
@@ -31,7 +32,6 @@ b { font-weight: 600; }
   display: none;
   margin-bottom: 20px;
 }
-.login>* { outline: none; }
 .login>.submit {
   position: absolute;
   left: -9999px;
@@ -64,6 +64,7 @@ b { font-weight: 600; }
 
 .threads>div>.comment {
   display: block;
+  font-size: .85rem;
 }
 
 .threads>div>input {
