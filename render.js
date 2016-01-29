@@ -10,26 +10,30 @@
 
   // generates html from a github issue
   window.ghGenerate = function (issue) {
-    github._request(
-      'GET',
-      issue.comments_url,
-      {},
-      function (error, comments) {
-        var body = '';
-        body += '<div id="' + issue.id + '">';
-        body += '<h1><a href="' + issue.html_url + '">' + issue.title + '</a></h1>';
-        body += issue.body ? '<p>' + issue.body + '</p>' : '';
+    var parent = document.querySelector('.threads');
+    var container = document.createElement('div');
+    parent.appendChild(container);
 
-        comments.forEach(function (comment) {
-          body += '<span class="comment">@' + comment.user.login + ': ' + comment.body + '</span>';
-        });
+    var link = document.createElement('a');
+    link.appendChild(document.createTextNode(issue.title));
 
-        body += '<input name="comment" placeholder="write comment...">';
-        body += '</div>';
+    var h1 = document.createElement('h1');
+    h1.appendChild(link);
+    container.appendChild(h1);
 
-        document.querySelector('.threads').innerHTML += body;
-      }
-    );
+    if (issue.body) {
+      var p = document.createElement('p');
+      p.appendChild(document.createTextNode(issue.body));
+      container.appendChild(p);
+    }
+
+    var comments = document.createElement('a');
+    comments.appendChild(document.createTextNode(issue.comments + ' comments'));
+    container.appendChild(comments);
+
+    container.setAttribute('id', issue.id);
+    link.setAttribute('href', issue.html_url);
+    comments.setAttribute('href', 'post.html#' + issue.id);
   };
 
   // renders github issues

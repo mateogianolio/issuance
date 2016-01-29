@@ -53,10 +53,10 @@ b { font-weight: 600; }
 }
 
 .threads>div {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
-.threads>div>*:not(h1) {
+.threads>div>p {
   border-bottom: 1px solid #eee;
   padding-bottom: 10px;
   margin-bottom: 10px;
@@ -65,8 +65,4 @@ b { font-weight: 600; }
 .threads>div>.comment {
   display: block;
   font-size: .85rem;
-}
-
-.threads>div>input {
-  border: none;
 }
