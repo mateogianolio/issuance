@@ -1,0 +1,71 @@
+*, html {
+  font: 100%/1.4 serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  width: 80%;
+  max-width: 960px;
+  margin: 20px auto;
+}
+
+h1 {
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+}
+
+a {
+  color: #2196F3;
+  text-decoration: none;
+}
+
+b { font-weight: 600; }
+
+.header {
+  margin-bottom: 40px;
+}
+
+.login {
+  display: none;
+  margin-bottom: 20px;
+}
+.login>* { outline: none; }
+.login>.submit {
+  position: absolute;
+  left: -9999px;
+}
+.login>.username, .password {
+  padding: 10px;
+  border: 1px solid #aaa;
+}
+.login>.username {
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+}
+.login>.password {
+  border-left: 1px solid #ccc;
+  border-radius: 0 4px 4px 0;
+}
+.login>input:focus {
+  border-color: #2196F3;
+}
+
+.threads>div {
+  margin-bottom: 20px;
+}
+
+.threads>div>*:not(h1) {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.threads>div>.comment {
+  display: block;
+}
+
+.threads>div>input {
+  border: none;
+}

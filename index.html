@@ -1,0 +1,24 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>GitHub Forum demo</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="github.bundle.min.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body onload="auth()">
+    <div class="header">
+      <h1>Github Forum demo</h1>
+      <p>
+        This is a Github-hosted website using <a href="https://github.com/michael/github">Github.js</a> to enable client-side interaction with its own Github issues.
+      </p>
+    </div>
+    <form class="login" method="post" onsubmit="return login()">
+      <input class="username" name="username" placeholder="GitHub Username">
+      <input class="password" name="password" type="password" placeholder="Password">
+      <input class="submit" type="submit">
+    </form>
+    <div class="threads">Loading...</div>
+  </body>
+</html>
