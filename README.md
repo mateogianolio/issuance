@@ -1,6 +1,6 @@
 # openblog
 
-Opening the doors to open-source blogging by utilizing Github Pages hosting and Github Issues as storage media for posts and comments.
+A simple blog hosted on Github Pages. Uses its own Github Issues as a storage media for posts and comments through the [Github.js API](https://github.com/michael/github).
 
 This is just an early prototype and would probably benefit from request caching and pagination.
 
