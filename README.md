@@ -21,3 +21,5 @@ This is just an early prototype and would probably benefit from request caching 
   window.TOKEN = 'your app access token here';
 }());
 ```
+
+4. Push to `gh-pages` branch.
