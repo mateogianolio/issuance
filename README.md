@@ -1,6 +1,6 @@
 # openblog
 
-Opening the doors to true open-source blogging by utilizing Github Pages hosting and Github Issues as storage media for posts and comments.
+Opening the doors to open-source blogging by utilizing Github Pages hosting and Github Issues as storage media for posts and comments.
 
 This is just an early prototype and would probably benefit from request caching and pagination.
 
