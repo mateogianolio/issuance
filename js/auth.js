@@ -3,10 +3,6 @@
 
   // authenticate with github
   window.ghAuth = function () {
-    var cookies = getCookies(),
-        username = cookies.username,
-        password = cookies.password;
-
     // export API as global
     window.github = new Github({
       token: window.TOKEN,
