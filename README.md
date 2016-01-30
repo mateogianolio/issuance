@@ -23,3 +23,5 @@ This is just an early prototype and would probably benefit from request caching 
   ```
 
 4. Push to `gh-pages` branch.
+
+Could be extended with a bunch of features, but I'm keeping it simple to let you guys experiment.
