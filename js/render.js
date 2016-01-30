@@ -10,30 +10,35 @@
 
   // generates html from a github issue
   window.ghGenerate = function (issue) {
-    var parent = document.querySelector('.threads');
-    var container = document.createElement('div');
+    if (issue.user.login !== window.USERNAME)
+      return;
+
+    var parent = document.querySelector('.threads'),
+        container = document.createElement('div'),
+        h1 = document.createElement('h1'),
+        link = document.createElement('a'),
+        p = document.createElement('p'),
+        comments = document.createElement('a');
+
     parent.appendChild(container);
-
-    var link = document.createElement('a');
-    link.appendChild(document.createTextNode(issue.title));
-
-    var h1 = document.createElement('h1');
-    h1.appendChild(link);
     container.appendChild(h1);
+    link.appendChild(document.createTextNode(issue.title));
+    h1.appendChild(link);
 
     if (issue.body) {
-      var p = document.createElement('p');
-      p.appendChild(document.createTextNode(issue.body));
       container.appendChild(p);
+      p.innerHTML = marked(issue.body);
     }
 
-    var comments = document.createElement('a');
-    comments.appendChild(document.createTextNode(issue.comments + ' comments'));
     container.appendChild(comments);
+    comments.appendChild(document.createTextNode(issue.comments + ' comment(s)'));
 
+    container.appendChild(document.createTextNode(', posted ' + new Date(issue.created_at).toLocaleDateString()));
+
+    // attribs
     container.setAttribute('id', issue.id);
     link.setAttribute('href', issue.html_url);
-    comments.setAttribute('href', 'post.html#' + issue.id);
+    comments.setAttribute('href', issue.html_url);
   };
 
   // renders github issues

@@ -2,28 +2,29 @@
 
 <html>
   <head>
-    <title>GitHub Forum demo</title>
+    <title>Github Blog</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="github.bundle.min.js"></script>
-    <script src="cookie.js"></script>
-    <script src="render.js"></script>
-    <script src="auth.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/github.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script src="js/lib/github.bundle.min.js"></script>
+    <script src="js/lib/marked.min.js"></script>
+
+    <script src="js/globals.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/auth.js"></script>
   </head>
   <body onload="ghAuth()">
     <div class="header">
-      <h1>Github Forum demo</h1>
+      <h1>Github Blog</h1>
       <p>
-        This is a Github-hosted website using
-        <a href="https://github.com/michael/github">Github.js</a>
-        to enable client-side interaction with its own Github issues.
+        This is a demo for a Github Pages-hosted website using its own issues
+        as content storage. <a href="https://github.com/mateogianolio/openblog">Fork it</a>.
       </p>
     </div>
-    <form class="login" method="post" onsubmit="return ghLogin()">
-      <input class="username" name="username" placeholder="GitHub Username">
-      <input class="password" name="password" type="password" placeholder="Password">
-      <input class="submit" type="submit">
-    </form>
     <div class="threads">Loading...</div>
   </body>
 </html>

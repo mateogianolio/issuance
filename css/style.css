@@ -1,0 +1,13 @@
+html {
+  width: 80%;
+  max-width: 960px;
+  margin: 20px auto;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.threads>div {
+  margin-bottom: 20px;
+}
