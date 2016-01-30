@@ -12,14 +12,14 @@ This is just an early prototype and would probably benefit from request caching 
 
 3. Change the globals in `lib/globals.js` to suit your needs:
 
-```javascript
-(function () {
-  'use strict';
+  ```javascript
+  (function () {
+    'use strict';
 
-  window.USERNAME = 'your username here';
-  window.REPO = 'your repo name here';
-  window.TOKEN = 'your app access token here';
-}());
-```
+    window.USERNAME = 'your username here';
+    window.REPO = 'your repo name here';
+    window.TOKEN = 'your app access token here';
+  }());
+  ```
 
 4. Push to `gh-pages` branch.
