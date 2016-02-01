@@ -10,7 +10,7 @@ This is just an early prototype and would probably benefit from request caching 
 
 2. To increase rate limit, create a Github Application and then [follow this simple guide](https://developer.github.com/changes/2012-12-06-create-authorization-for-app/) to generate an OAuth token without needing to use the webflow.
 
-3. Change the globals in `lib/globals.js` to suit your needs:
+3. Change the globals in `js/globals.js` to suit your needs:
 
   ```javascript
   (function () {
