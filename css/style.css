@@ -24,14 +24,15 @@ body {
 
 .post-title {
   font-size: 1.75rem;
+  line-height: 1;
 }
 
 .post-title>a {
+  margin-right: 8px;
   color: #000;
 }
 
 .post-meta-categories {
-  margin-left: 8px;
   display: inline-block;
   color: #ffffff;
 }
@@ -46,7 +47,8 @@ body {
 .post-meta-date {
   font-size: .75rem;
   color: #9E9E9E;
-  margin-top: -1rem;
+  margin-top: -8px;
+  margin-bottom: 8px;
 }
 
 .post-meta-comments {
