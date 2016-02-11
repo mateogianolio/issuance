@@ -13,6 +13,7 @@
             params = window.location.search;
         if (params.indexOf('code') !== -1) {
           form.redirect_uri.value = window.USERNAME + '.github.io/' + window.REPO + '/login.html';
+          alert(form.redirect_uri.value);
           form.code.value = params.replace('?code=', '');
           form.submit();
         }
