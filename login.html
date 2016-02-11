@@ -23,7 +23,9 @@
               if (response)
                 url += '?token=' + response.access_token;
 
-              alert(JSON.stringify(error), JSON.stringify(response), url);
+              alert(JSON.stringify(error));
+              alert(JSON.stringify(response));
+              alert(url);
 
               window.location.href = url;
             }
