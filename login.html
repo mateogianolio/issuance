@@ -22,6 +22,7 @@
             },
             function (error, data) {
               console.log(error, data);
+              return;
               var url = 'https://' + window.USERNAME + '.github.io/' + window.REPO;
               window.location.href = url;
             }
