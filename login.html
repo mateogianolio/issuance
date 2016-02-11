@@ -9,28 +9,24 @@
     <script src="js/auth.js"></script>
     <script>
       function redirect() {
-        if (window.location.search) {
+        var params = window.location.search;
+        if (params.indexOf('code') !== -1) {
           window.github._request(
-            'PUT',
+            'POST',
             'https://github.com/login/oauth/access_token',
             {
               client_id: '92acf5c0002534e0edb3',
               client_secret: '7fe6aea5d9800a8dc244a5217b592aebc01a8c1b',
-              code: window.location.search.replace('?code=', '')
+              code: params.replace('?code=', ''),
+              redirect_uri: 'https://' + window.USERNAME + '.github.io/' + window.REPO + '/login.html'
             },
-            function (error, response) {
+            function (error, data) {
               var url = 'https://' + window.USERNAME + '.github.io/' + window.REPO;
-              if (response)
-                url += '?token=' + response.access_token;
-
-              alert(JSON.stringify(error));
-              alert(JSON.stringify(response));
-              alert(window.location.search.replace('?code=', ''));
-              alert(url);
-
               window.location.href = url;
             }
           );
+        } else if (params.indexOf('access_token') !== -1) {
+          console.log(params);
         }
       }
     </script>
