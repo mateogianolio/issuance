@@ -14,6 +14,7 @@
             'POST',
             'https://github.com/login/oauth/access_token',
             {
+              Accept: 'application/json',
               client_id: '92acf5c0002534e0edb3',
               client_secret: '7fe6aea5d9800a8dc244a5217b592aebc01a8c1b',
               code: window.location.search.replace('?code=', '')
