@@ -17,14 +17,11 @@
             {
               client_id: '92acf5c0002534e0edb3',
               client_secret: '7fe6aea5d9800a8dc244a5217b592aebc01a8c1b',
-              code: params.replace('?code=', ''),
-              redirect_uri: 'https://' + window.USERNAME + '.github.io/' + window.REPO + '/login.html'
+              code: params.replace('?code=', '')
             },
             function (error, data) {
               console.log(error, data);
               return;
-              var url = 'https://' + window.USERNAME + '.github.io/' + window.REPO;
-              window.location.href = url;
             }
           );
         } else if (params.indexOf('access_token') !== -1) {
