@@ -15,9 +15,6 @@
             params[object[0]] = object[1];
           });
 
-        console.log(params);
-        return;
-
         if ('code' in params) {
           var request = new XMLHttpRequest();
           request.open('POST', 'https://github.com/login/oauth/access_token');
