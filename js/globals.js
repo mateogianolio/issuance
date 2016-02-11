@@ -3,5 +3,5 @@
 
   window.USERNAME = 'mateogianolio'; // github username
   window.REPO = 'openblog'; // github repository
-  window.TOKEN = 'e70eebb2b683a22e6b4403f8fa3423927404068b'; // github app access token
+  window.TOKEN = 'f35a05685e3aeac30cc5b32d8d1e6dc1bbc41ca9'; // github app access token
 }());
