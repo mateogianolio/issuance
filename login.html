@@ -18,6 +18,7 @@
         if ('code' in params) {
           var request = new XMLHttpRequest();
           request.open('POST', 'https://github.com/login/oauth/access_token');
+          request.setRequestHeader('Accept', 'application/json');
 
           var post = [
             'client_id=92acf5c0002534e0edb3',
