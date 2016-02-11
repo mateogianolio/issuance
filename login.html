@@ -7,20 +7,20 @@
     <script>
       function redirect() {
         if (window.location.search.indexOf('?code=') === 0) {
-          document.forms[0].code.value = window.location.search.replace('?code=', '');
-          document.forms[0].submit();
+          var request = XMLHttpRequest();
+          request.open('POST', 'https://github.com/login/oauth/access_token');
+          request.send({
+            client_id: '92acf5c0002534e0edb3',
+            client_secret: '7fe6aea5d9800a8dc244a5217b592aebc01a8c1b',
+            code: window.location.search.replace('?code=', '')
+          });
+          request.addEventListener('load', function (data) {
+            console.log(data);
+          });
         }
-
-        alert(window.location);
-        window.close();
       }
     </script>
   </head>
   <body onload="redirect()">
-    <form method="POST" action="https://github.com/login/oauth/access_token">
-      <input name="client_id" type="hidden" value="92acf5c0002534e0edb3">
-      <input name="client_secret" type="hidden" value="7fe6aea5d9800a8dc244a5217b592aebc01a8c1b">
-      <input name="code" type="hidden" value="">
-    </form>
   </body>
 </html>
