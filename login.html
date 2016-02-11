@@ -9,27 +9,20 @@
     <script src="js/auth.js"></script>
     <script>
       function redirect() {
-        var params = window.location.search;
+        var form = document.forms[0],
+            params = window.location.search;
         if (params.indexOf('code') !== -1) {
-          window.github._request(
-            'POST',
-            'https://github.com/login/oauth/access_token',
-            {
-              client_id: '92acf5c0002534e0edb3',
-              client_secret: '7fe6aea5d9800a8dc244a5217b592aebc01a8c1b',
-              code: params.replace('?code=', '')
-            },
-            function (error, data) {
-              console.log(error, data);
-              return;
-            }
-          );
-        } else if (params.indexOf('access_token') !== -1) {
-          console.log(params);
+          form.code.value = params.replace('?code=', '');
+          form.submit();
         }
       }
     </script>
   </head>
   <body onload="authorize(); redirect()">
+    <form method="POST" action="https://github.com/login/oauth/access_token">
+      <input name="client_id" type="hidden" value="92acf5c0002534e0edb3">
+      <input name="client_secret" type="hidden" value="7fe6aea5d9800a8dc244a5217b592aebc01a8c1b">
+      <input name="code" type="hidden" value="">
+    </form>
   </body>
 </html>
