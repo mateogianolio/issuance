@@ -12,7 +12,7 @@
         var form = document.forms[0],
             params = window.location.search;
         if (params.indexOf('code') !== -1) {
-          form.redirect_uri.value = 'https://' + window.USERNAME + '.github.io/' + window.REPO + '/login.html';
+          form.redirect.value = 'https://' + window.USERNAME + '.github.io/' + window.REPO + '/login.html';
           form.code.value = params.replace('?code=', '');
           form.submit();
         }
