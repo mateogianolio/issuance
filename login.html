@@ -12,7 +12,7 @@
         var form = document.forms[0],
             params = window.location.search;
         if (params.indexOf('code') !== -1) {
-          form.redirect.value = 'https://' + window.USERNAME + '.github.io/' + window.REPO + '/login.html';
+          form.redirect_uri.value = 'https://' + window.USERNAME + '.github.io/' + window.REPO + '/login.html/';
           form.code.value = params.replace('?code=', '');
           form.submit();
         }
@@ -20,10 +20,10 @@
     </script>
   </head>
   <body onload="redirect()">
-    <form method="POST" action="https://github.com/login/oauth/access_token/">
+    <form method="POST" action="https://github.com/login/oauth/access_token">
       <input name="client_id" type="hidden" value="92acf5c0002534e0edb3">
       <input name="client_secret" type="hidden" value="7fe6aea5d9800a8dc244a5217b592aebc01a8c1b">
-      <input name="redirect" type="hidden" value="">
+      <input name="redirect_uri" type="hidden" value="">
       <input name="code" type="hidden" value="">
     </form>
   </body>
