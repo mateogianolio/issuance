@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Github Blog</title>
+    <title>Openblog</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,17 +13,13 @@
     <script src="js/lib/marked.min.js"></script>
 
     <script src="js/globals.js"></script>
-    <script src="js/cookie.js"></script>
     <script src="js/render.js"></script>
     <script src="js/auth.js"></script>
   </head>
-  <body onload="ghAuth()">
+  <body onload="authorize(); render()">
     <div class="header">
-      <h1>Github Blog</h1>
-      <p>
-        This is a demo for a Github Pages-hosted website using its own issues
-        as content storage. <a href="https://github.com/mateogianolio/openblog">Set it up yourself.</a>
-      </p>
+      <h1><strong>open</strong>blog</h1>
+      <a href="https://github.com/login/oauth/authorize?scope=user:repo&client_id=92acf5c0002534e0edb3">Signup with GitHub</a>
     </div>
     <div class="threads">Loading...</div>
   </body>

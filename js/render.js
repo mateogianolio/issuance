@@ -8,47 +8,118 @@
       0 : -1;
   }
 
+  function html(type, content) {
+    var element = document.createElement(type);
+    if (content instanceof HTMLElement)
+      element.appendChild(content);
+    else if (content)
+      element.innerHTML = content;
+    return element;
+  }
+
+  function link(href, content) {
+    var element = html('a', content);
+    element.href = href;
+    return element;
+  }
+
   // generates html from a github issue
-  window.ghGenerate = function (issue) {
+  function generate(issue) {
+    // skip issues from other users than yourself
     if (issue.user.login !== window.USERNAME)
       return;
 
     var parent = document.querySelector('.threads'),
-        container = document.createElement('div'),
-        h1 = document.createElement('h1'),
-        link = document.createElement('a'),
-        p = document.createElement('p'),
-        comments = document.createElement('a');
+        container = html('div');
+
+    container.className = 'post';
 
     parent.appendChild(container);
-    container.appendChild(h1);
-    link.appendChild(document.createTextNode(issue.title));
-    h1.appendChild(link);
 
-    if (issue.body) {
-      container.appendChild(p);
-      p.innerHTML = marked(issue.body);
+    var title = html('h1', link(issue.html_url, issue.title));
+    title.className = 'post-title';
+    container.appendChild(title);
+
+    var categories = html('div');
+    categories.className = 'post-meta-categories';
+    title.appendChild(categories);
+
+    issue.labels.forEach(function (label) {
+      var element = html('span', label.name);
+      element.className = 'post-meta-category';
+      element.style.background = '#' + label.color;
+      categories.appendChild(element);
+    });
+
+    var date = html('div', new Date(issue.created_at).toLocaleDateString());
+    date.className = 'post-meta-date';
+    container.appendChild(date);
+
+    var body = html('div', marked(issue.body));
+    body.className = 'post-body';
+    container.appendChild(body);
+
+    var comments = html('div');
+    comments.className = 'post-meta-comments';
+    container.appendChild(comments);
+
+    if (issue.comments) {
+      var count = html('div', 'Loading ' + issue.comments + ' comment(s)...');
+      count.className = 'post-meta-comment-count';
+      comments.appendChild(count);
+
+      window.github._request(
+        'GET',
+        issue.comments_url,
+        {},
+        function (error, data) {
+          if (error)
+            return;
+
+          comments.innerHTML = '';
+
+          data.forEach(function(comment) {
+            var element = html('div');
+            element.id = comment.id;
+            element.className = 'post-meta-comment';
+            comments.appendChild(element);
+
+            var author = html('div', link(comment.user.url, comment.user.login));
+            author.className = 'post-meta-comment-author';
+            element.appendChild(author);
+
+            var date = html('span', new Date(comment.created_at).toLocaleDateString());
+            date.className = 'post-meta-comment-date';
+            author.appendChild(date);
+
+            var body = html('div', marked(comment.body));
+            body.className = 'post-meta-comment-body';
+            element.appendChild(body);
+          });
+
+          comments.appendChild(link(issue.html_url, 'add comment'));
+        }
+      );
     }
 
-    container.appendChild(comments);
-    comments.appendChild(document.createTextNode(issue.comments + ' comment(s)'));
-
-    container.appendChild(document.createTextNode(', posted ' + new Date(issue.created_at).toLocaleDateString()));
-
     // attribs
-    container.setAttribute('id', issue.id);
-    link.setAttribute('href', issue.html_url);
-    comments.setAttribute('href', issue.html_url);
-  };
+    container.id = issue.id;
+    link.href = issue.html_url;
+    comments.href = issue.html_url;
+  }
 
   // renders github issues
-  window.ghRender = function (error, issues) {
-    if (error || !issues)
-      return;
+  window.render = function () {
+    window.github
+      .getIssues(window.USERNAME, window.REPO)
+      .list({}, function (error, issues) {
+        if (error || !issues)
+          return;
 
-    document.querySelector('.threads').innerHTML = '';
-    issues
-      .sort(order)
-      .forEach(window.ghGenerate);
+        document.querySelector('.threads').innerHTML = '';
+        issues
+          .sort(order)
+          .forEach(generate);
+      });
   };
 }());

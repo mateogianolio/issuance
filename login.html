@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Openblog Github Login</title>
+    <script src="js/lib/github.bundle.min.js"></script>
+
+    <script src="js/globals.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      function redirect() {
+        if (window.location.search) {
+          window.github._request(
+            'POST',
+            'https://github.com/login/oauth/access_token',
+            {
+              client_id: '92acf5c0002534e0edb3',
+              client_secret: '7fe6aea5d9800a8dc244a5217b592aebc01a8c1b',
+              code: window.location.search.replace('?code=', '')
+            },
+            function (error, response) {
+              var url = 'https://' + window.USERNAME + '.github.io/' + window.REPO;
+              if (response)
+                url += '?token=' + response.access_token;
+
+              window.location.href = url;
+            }
+          );
+        }
+      }
+    </script>
+  </head>
+  <body onload="authorize(); redirect()">
+  </body>
+</html>
