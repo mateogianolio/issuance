@@ -17,7 +17,7 @@
           ];
 
           request.send('?' + post.join('&'));
-          request.addEventListener('load', function (data) {
+          request.addEventListener('error', function (data) {
             console.log(data);
           });
         }
