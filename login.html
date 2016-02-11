@@ -21,6 +21,7 @@
               redirect_uri: 'https://' + window.USERNAME + '.github.io/' + window.REPO + '/login.html'
             },
             function (error, data) {
+              console.log(error, data);
               var url = 'https://' + window.USERNAME + '.github.io/' + window.REPO;
               window.location.href = url;
             }
