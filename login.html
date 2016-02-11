@@ -23,7 +23,7 @@
               if (response)
                 url += '?token=' + response.access_token;
 
-              alert(error, response, url);
+              alert(JSON.stringify(error), JSON.stringify(response), url);
 
               window.location.href = url;
             }
