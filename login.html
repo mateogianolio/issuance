@@ -8,6 +8,7 @@
       function redirect() {
         if (window.location.search.indexOf('?code=') === 0) {
           var request = new XMLHttpRequest();
+          request.setRequestHeader('Access-Control-Allow-Origin', '*');
           request.open('POST', 'https://github.com/login/oauth/access_token');
           request.send({
             client_id: '92acf5c0002534e0edb3',
