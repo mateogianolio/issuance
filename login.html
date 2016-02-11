@@ -9,8 +9,10 @@
         if (window.location.search.indexOf('?code=') === 0) {
           var request = new XMLHttpRequest();
           request.open('POST', 'https://github.com/login/oauth/access_token');
-          request.setRequestHeader('Access-Control-Allow-Origin', '*');
-          request.send('client_id=92acf5c0002534e0edb3&client_secret=7fe6aea5d9800a8dc244a5217b592aebc01a8c1b&code=' + window.location.search.replace('?code=', ''));
+          request.send('client_id=92acf5c0002534e0edb3');
+          request.send('client_secret=7fe6aea5d9800a8dc244a5217b592aebc01a8c1b');
+          request.send('code=' + window.location.search.replace('?code=', ''));
+          request.send('request_uri=http://mateogianolio.com/openblog/login.html');
           request.addEventListener('load', function (data) {
             console.log(data);
           });
