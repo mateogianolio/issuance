@@ -20,11 +20,12 @@
         data += '&format=json';
         data += '&callback=callback';
 
-        url += data;
-
-        var script = document.createElement('script');
-        script.src = url;
-        document.head.appendChild(script);
+        var request = new XMLHttpRequest();
+        request.open('GET', url, true);
+        request.send(data);
+        request.onreadystatechange = function () {
+          console.log(this);
+        }
       }
     </script>
   </body>
