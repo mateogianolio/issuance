@@ -39,7 +39,7 @@
 
         progress.appendChild(createMessage(
           'Successfully forked ' + window.USERNAME + '/' + window.REPO + ' to ' +
-          form.username.value + '.', true));
+          form.username.value + '/' + window.REPO + '.', true));
 
         // create personal access token with no scope
         github._request('POST', '/authorizations', { note: 'Openblog' }, function (error, response) {
@@ -69,8 +69,7 @@
               url.href = 'https://' + form.username.value + '.github.io/openblog/';
               url.innerHTML = url.href;
               message.appendChild(url);
-              message.innerHTML += '<br>Start writing issues!';
-              
+
               progress.appendChild(message);
             });
         });
