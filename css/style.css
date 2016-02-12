@@ -8,6 +8,10 @@ body {
   line-height: 1.5;
 }
 
+pre {
+  background: #fff;
+}
+
 .header {
   margin-bottom: 40px;
 }
@@ -87,8 +91,4 @@ body {
   background: #fafafa;
   border-radius: 0 4px 4px 4px;
   color: #757575;
-}
-
-.post-meta-comment-body pre {
-  background: #fff;
 }
