@@ -15,17 +15,11 @@
     <script src="js/globals.js"></script>
     <script src="js/render.js"></script>
     <script src="js/auth.js"></script>
-
-    <script>
-      function login() {
-        window.open('https://github.com/login/oauth/authorize?client_id=92acf5c0002534e0edb3', '', 'width=400, height=400');
-      }
-    </script>
   </head>
   <body onload="authorize(); render()">
     <div class="header">
       <h1><strong>open</strong>blog</h1>
-      <blockquote>Blogging with Github issues <button onclick="login()"></blockquote>
+      <blockquote>Blogging with Github issues</blockquote>
     </div>
     <div class="threads">Loading...</div>
   </body>
