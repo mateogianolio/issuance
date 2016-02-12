@@ -12,18 +12,29 @@
     <script src="js/lib/github.bundle.min.js"></script>
     <script src="js/lib/marked.min.js"></script>
     <script src="js/lib/hello.min.js"></script>
-    <script>
-      hello.init({ github: '92acf5c0002534e0edb3' }, { redirect_uri: 'index.html' });
-    </script>
 
     <script src="js/globals.js"></script>
     <script src="js/render.js"></script>
     <script src="js/auth.js"></script>
+
+    <script>
+      hello.init(
+        { github: '92acf5c0002534e0edb3' },
+        { redirect_uri: 'index.html' }
+      );
+
+      function login() {
+        hello('github').login().then(function (error) {
+          var token = hello('github').getAuthResponse().access_token;
+          authorize(token);
+        });
+      }
+    </script>
   </head>
   <body onload="authorize(); render()">
     <div class="header">
       <h1><strong>open</strong>blog</h1>
-      <blockquote>Blogging with Github issues <button onclick="hello('github').login()"></blockquote>
+      <blockquote>Blogging with Github issues <button onclick="login()"></blockquote>
     </div>
     <div class="threads">Loading...</div>
   </body>

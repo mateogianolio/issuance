@@ -2,12 +2,10 @@
   'use strict';
 
   // authenticate with github
-  window.authorize = function () {
-    // TODO: if cookie[token] set window.token to cookie[token]
-    
+  window.authorize = function (token) {
     // export API as global
     window.github = new Github({
-      token: window.TOKEN,
+      token: token || window.TOKEN,
       auth: 'oauth'
     });
   };
