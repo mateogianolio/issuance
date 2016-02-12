@@ -10,6 +10,8 @@
 
         var request = new XMLHttpRequest();
         request.open('POST', 'https://github.com/login/oauth/access_token', true);
+        request.setRequestHeader('Access-Control-Allow-Origin', 'http://mateogianolio.com');
+        request.setRequestHeader('Accept', 'application/json');
 
         var data = '?client_id=92acf5c0002534e0edb3';
         data += '&client_secret=7fe6aea5d9800a8dc244a5217b592aebc01a8c1b';
