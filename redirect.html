@@ -5,26 +5,26 @@
     <title>Openblog</title>
     <script>
       function redirect() {
+        if (!window.location.search)
+          return;
+
         var request = new XMLHttpRequest();
         request.open('POST', 'https://github.com/login/oauth/access_token', true);
 
         var data = '?client_id=92acf5c0002534e0edb3';
         data += '&client_secret=7fe6aea5d9800a8dc244a5217b592aebc01a8c1b';
         data += '&code=' + window.location.search.replace('?code=');
-        data += '&response_type=token';
 
         request.send(data);
-        request.addEventListener('load', function () {
-          alert('loaded!')
+        request.onerror(function () {
+          alert('error!');
+        });
+        request.onload(function () {
+          alert(request.responseText);
         });
       }
     </script>
   </head>
   <body onload="redirect()">
-    <form method="post" action="https://github.com/login/oauth/access_token">
-      <input name="client_id" type="hidden" value="92acf5c0002534e0edb3">
-      <input name="client_secret" type="hidden" value="7fe6aea5d9800a8dc244a5217b592aebc01a8c1b">
-      <input name="code" type="hidden">
-    </form>
   </body>
 </html>
