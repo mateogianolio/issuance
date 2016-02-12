@@ -16,11 +16,26 @@
     <script src="js/render.js"></script>
     <script src="js/auth.js"></script>
   </head>
-  <body onload="authorize(); render()">
+  <body>
     <div class="header">
       <h1><a href="index.html"><strong>open</strong>blog</a></h1>
       <blockquote><a href="setup.html">Fork this blog</a></blockquote>
     </div>
-    <div class="threads">Loading...</div>
+    <h1>Fork this blog</h1>
+    <p>
+      Enter your Github credentials and press <strong>fork</strong> to automatically
+       <i>fork this repository</i>, <i>create a personal access token</i> with
+       no scope and then <i>write the access token to your fork</i>.
+    </p>
+    <p>
+      After this go to your repository's settings, check "Enable issues" and start writing posts!
+    </p>
+
+    <form onsubmit="return login()">
+      <input name="username" placeholder="Github username">
+      <input name="password" type="password" placeholder="Github password">
+      <input type="submit" value="Fork">
+    </form>
+    <div class="progress"></div>
   </body>
 </html>

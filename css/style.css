@@ -13,8 +13,32 @@ pre {
   border: 1px solid #efefef;
 }
 
+form {
+  margin-top: 20px;
+}
+
+input {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 8px;
+  margin-left: 0;
+  margin-bottom: 8px;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  outline: 0;
+}
+
+input[type=submit] {
+  background: #efefef;
+  color: #757575;
+  font-weight: bold;
+}
+input[type=submit]:hover {
+  cursor: pointer;
+}
+
 .header {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .header>h1 {
@@ -27,6 +51,27 @@ pre {
 .header>blockquote {
   display: inline-block;
   font-size: .9rem;
+}
+
+.progress {
+  margin-top: 8px;
+}
+
+.progress>div {
+  padding: 2px 0;
+}
+
+.progress-success::before {
+  content: '\2713';
+  display: inline-block;
+  width: 1rem;
+  color: #4CAF50;
+}
+.progress-error::before {
+  content: '\2717';
+  display: inline-block;
+  width: 1rem;
+  color: #F44336;
 }
 
 .post {
