@@ -16,12 +16,14 @@
         data += '&code=' + window.location.search.replace('?code=');
 
         request.send(data);
-        request.addEventListener('error', function () {
-          alert(request.responseText);
-        });
-        request.addEventListener('load', function () {
-          alert(request.responseText);
-        });
+        request.onreadystatechange = function (event) {
+          if (request.readyState === 4) {
+            if (request.status === 200)
+              alert(request.responseText);
+            else
+              alert(request.statusText);
+          }
+        };
       }
     </script>
   </head>
