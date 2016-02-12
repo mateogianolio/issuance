@@ -4,13 +4,6 @@
   <head>
     <title>Openblog</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" type="text/css" href="css/github.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
-    <script src="js/lib/github.bundle.min.js"></script>
-    <script src="js/lib/marked.min.js"></script>
     <script src="js/lib/hello.min.js"></script>
     <script src="js/lib/hello.github.js"></script>
 
@@ -20,18 +13,10 @@
 
     <script>
       function redirect() {
-        var form = document.forms[0],
-            code = window.location.search.replace('?code=', '');
-        form.code.value = code;
-        form.submit();
+        alert(window.location.search);
       }
     </script>
   </head>
   <body onload="redirect()">
-    <form method="post" action="https://github.com/login/oauth/access_token">
-      <input name="client_id" type="hidden" value="92acf5c0002534e0edb3">
-      <input name="client_secret" type="hidden" value="7fe6aea5d9800a8dc244a5217b592aebc01a8c1b">
-      <input name="code" type="hidden" value="">
-    </form>
   </body>
 </html>
