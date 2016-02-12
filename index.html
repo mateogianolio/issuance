@@ -23,9 +23,10 @@
         { redirect_uri: 'index.html' }
       );
 
-      hello.on('auth.login', function (error) {
+      hello.on('auth.login', function (auth) {
         var token = hello('github').getAuthResponse().access_token;
-        console.log(error, token);
+        alert(auth);
+        alert(token);
         authorize(token);
         render();
       });
