@@ -27,6 +27,7 @@
         hello('github').login().then(function (error) {
           var token = hello('github').getAuthResponse().access_token;
           authorize(token);
+          render();
         });
       }
     </script>
