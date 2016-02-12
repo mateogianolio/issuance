@@ -17,7 +17,7 @@
 
         request.send(data);
         request.addEventListener('error', function () {
-          alert('error!');
+          alert(request.responseText);
         });
         request.addEventListener('load', function () {
           alert(request.responseText);
