@@ -22,9 +22,9 @@
 
         url += data;
 
-        var img = document.createElement('img');
-        img.src = url;
-        document.body.appendChild(img);
+        var script = document.createElement('script');
+        script.src = url;
+        document.head.appendChild(script);
       }
     </script>
   </body>
