@@ -23,20 +23,18 @@
         { redirect_uri: 'index.html' }
       );
 
-      function login() {
-        hello('github').login().then(function (error) {
-          var token = hello('github').getAuthResponse().access_token;
-          console.log(error, token);
-          authorize(token);
-          render();
-        });
-      }
+      hello.on('auth.login', function (error) {
+        var token = hello('github').getAuthResponse().access_token;
+        console.log(error, token);
+        authorize(token);
+        render();
+      });
     </script>
   </head>
   <body onload="authorize(); render()">
     <div class="header">
       <h1><strong>open</strong>blog</h1>
-      <blockquote>Blogging with Github issues <button onclick="login()"></blockquote>
+      <blockquote>Blogging with Github issues <button onclick="hello('github').login()"></blockquote>
     </div>
     <div class="threads">Loading...</div>
   </body>
