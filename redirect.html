@@ -12,7 +12,6 @@
 
         var script = document.createElement('script');
         script.src = 'https://github.com/login/oauth/access_token' + data;
-        script.type = 'application/json';
         script.onreadystatechange = function () {
           console.log(this);
         }
