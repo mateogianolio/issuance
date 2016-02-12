@@ -25,10 +25,7 @@
 
       hello.on('auth.login', function (auth) {
         var token = hello('github').getAuthResponse().access_token;
-        alert(auth);
         alert(token);
-        authorize(token);
-        render();
       });
     </script>
   </head>
