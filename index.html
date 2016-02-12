@@ -26,6 +26,7 @@
       function login() {
         hello('github').login().then(function (error) {
           var token = hello('github').getAuthResponse().access_token;
+          console.log(error, token);
           authorize(token);
           render();
         });
