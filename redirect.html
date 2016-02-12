@@ -17,6 +17,9 @@
 
         var script = document.createElement('script');
         script.src = 'https://github.com/login/oauth/access_token' + data;
+        script.onload = function () {
+          alert(this.readyState);
+        }
         document.querySelector('head').appendChild(script);
       }
     </script>
