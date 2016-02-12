@@ -6,23 +6,18 @@
   </head>
   <body>
     <script>
-      var request = new XMLHttpRequest();
-      request.open('POST', 'https://github.com/login/oauth/access_token', true);
+      function cb(data) {
+        alert(data);
+      }
 
       var data = '?client_id=92acf5c0002534e0edb3';
       data += '&client_secret=7fe6aea5d9800a8dc244a5217b592aebc01a8c1b';
       data += '&code=' + window.location.search.replace('?code=');
-      data += '&redirect_uri=http://mateogianolio.com'
+      data += '&callback=cb';
 
-      request.send(data);
-      request.onreadystatechange = function (event) {
-        if (request.readyState === 4) {
-          if (request.status === 200)
-            alert(request.responseText);
-          else
-            alert(request.statusText);
-        }
-      };
+      var script = document.createElement('script');
+      script.src = 'https://github.com/login/oauth/access_token' + data;
+      document.head.appendChild(script);
     </script>
   </body>
 </html>
