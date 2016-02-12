@@ -60,12 +60,11 @@
     container.appendChild(body);
 
     var comments = html('div');
-    comments.className = 'post-meta-comments';
+    comments.className = 'post-comments';
     container.appendChild(comments);
 
     if (issue.comments) {
       var count = html('div', 'Loading ' + issue.comments + ' comment(s)...');
-      count.className = 'post-meta-comment-count';
       comments.appendChild(count);
 
       window.github._request(
@@ -81,19 +80,19 @@
           data.forEach(function(comment) {
             var element = html('div');
             element.id = comment.id;
-            element.className = 'post-meta-comment';
+            element.className = 'post-comment';
             comments.appendChild(element);
 
-            var author = html('div', link(comment.user.url, comment.user.login));
-            author.className = 'post-meta-comment-author';
+            var author = html('div', link(comment.user.html_url, comment.user.login));
+            author.className = 'post-comment-author';
             element.appendChild(author);
 
             var date = html('span', new Date(comment.created_at).toLocaleDateString());
-            date.className = 'post-meta-comment-date';
+            date.className = 'post-comment-date';
             author.appendChild(date);
 
             var body = html('div', marked(comment.body));
-            body.className = 'post-meta-comment-body';
+            body.className = 'post-comment-body';
             element.appendChild(body);
           });
 
