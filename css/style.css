@@ -1,7 +1,7 @@
 html {
   width: 100%;
   max-width: 960px;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
 body {
@@ -14,8 +14,14 @@ body {
 
 .header>h1 {
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: normal;
+  margin-right: 10px;
+}
+
+.header>blockquote {
+  display: inline-block;
+  font-size: .9rem;
 }
 
 .post {
@@ -38,10 +44,10 @@ body {
 }
 
 .post-meta-category {
-  margin: 0 2px;
+  margin-right: 4px;
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: .8rem;
+  font-size: .75rem;
 }
 
 .post-meta-date {
@@ -85,21 +91,4 @@ body {
 
 .post-meta-comment-body pre {
   background: #fff;
-}
-
-.post-meta-comment-input-username,
-.post-meta-comment-input-password,
-.post-meta-comment-input-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: .8rem;
-  padding: 6px;
-  border: 1px solid #eee;
-  border-radius: 2px;
-  outline: none;
-}
-
-.post-meta-comment-input-body {
-  margin-top: .5rem;
-  width: 100%;
-  min-height: 4rem;
 }
