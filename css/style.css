@@ -9,7 +9,8 @@ body {
 }
 
 pre {
-  background: #fff;
+  background: #fafafa;
+  border: 1px solid #efefef;
 }
 
 .header {
