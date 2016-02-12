@@ -4,23 +4,17 @@
   <head>
     <title>Openblog</title>
     <script>
-      function cb(data) {
-        console.log('hi');
-        console.log(data);
-      }
-
       if (window.location.search.indexOf('code') !== -1) {
         var data = '?client_id=92acf5c0002534e0edb3';
         data += '&client_secret=7fe6aea5d9800a8dc244a5217b592aebc01a8c1b';
         data += '&code=' + window.location.search.replace('?code=', '');
         data += '&format=json';
-        data += '&callback=cb';
 
         var script = document.createElement('script');
         script.src = 'https://github.com/login/oauth/access_token' + data;
         script.type = 'application/json';
-        script.onload = function () {
-          alert(this.innerHTML);
+        script.onreadystatechange = function () {
+          console.log(this);
         }
         document.querySelector('head').appendChild(script);
       }
