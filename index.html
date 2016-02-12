@@ -19,22 +19,12 @@
     <script src="js/auth.js"></script>
 
     <script>
-      hello.init(
-        { github: '92acf5c0002534e0edb3' },
-        { redirect_uri: 'index.html' }
-      );
-
-      function login() {
-        hello('github').login().then(function (error) {
-          alert(hello('github').getAuthResponse());
-        });
-      }
     </script>
   </head>
   <body onload="authorize(); render()">
     <div class="header">
       <h1><strong>open</strong>blog</h1>
-      <blockquote>Blogging with Github issues <button onclick="login()"></blockquote>
+      <blockquote>Blogging with Github issues <button onclick="hello('github')"></blockquote>
     </div>
     <div class="threads">Loading...</div>
   </body>
