@@ -16,10 +16,10 @@
         data += '&code=' + window.location.search.replace('?code=');
 
         request.send(data);
-        request.onerror(function () {
+        request.addEventListener('error', function () {
           alert('error!');
         });
-        request.onload(function () {
+        request.addEventListener('load', function () {
           alert(request.responseText);
         });
       }
