@@ -33,6 +33,7 @@ input[type=submit] {
   color: #757575;
   font-weight: bold;
 }
+
 input[type=submit]:hover {
   cursor: pointer;
 }
