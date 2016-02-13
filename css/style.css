@@ -46,12 +46,12 @@ input[type=submit]:hover {
   display: inline-block;
   font-size: 1.75rem;
   font-weight: normal;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
-.header>blockquote {
-  display: inline-block;
-  font-size: .9rem;
+.header>iframe {
+  vertical-align: middle;
+  margin-bottom: 8px;
 }
 
 .progress {
@@ -85,7 +85,7 @@ input[type=submit]:hover {
 }
 
 .post-title>a {
-  margin-right: 8px;
+  margin-right: 16px;
   color: #000;
 }
 
@@ -103,7 +103,8 @@ input[type=submit]:hover {
   margin-right: 4px;
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: .75rem;
+  font-size: .9rem;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .75);
 }
 
 .post-meta-date {
