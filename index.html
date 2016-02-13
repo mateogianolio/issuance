@@ -5,21 +5,32 @@
     <title>Openblog</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Blogging with Github issues.">
 
     <link rel="stylesheet" type="text/css" href="css/github.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <script src="js/lib/github.bundle.min.js"></script>
-    <script src="js/lib/marked.min.js"></script>
+    <script src="https://github.com/michael/github/raw/master/dist/github.bundle.min.js"></script>
+    <script src="https://github.com/chjj/marked/raw/master/marked.min.js"></script>
 
     <script src="js/globals.js"></script>
     <script src="js/render.js"></script>
-    <script src="js/auth.js"></script>
   </head>
-  <body onload="authorize(); render()">
+  <body onload="render()">
     <div class="header">
-      <h1><a href="index.html"><strong>open</strong>blog</a></h1>
-      <iframe src="https://ghbtns.com/github-btn.html?user=mateogianolio&repo=openblog&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
+      <h1 class="title">
+        <a href="index.html">
+          <strong>open</strong>blog
+        </a>
+      </h1>
+      <iframe
+        class="fork-button"
+        src="https://ghbtns.com/github-btn.html?user=mateogianolio&repo=openblog&type=fork&count=true&size=large"
+        frameborder="0"
+        scrolling="0"
+        width="158px"
+        height="30px">
+      </iframe>
     </div>
     <div class="threads">Loading...</div>
   </body>
