@@ -38,18 +38,21 @@ function generate(issue) {
   content.push('<div class="post-body">');
   content.push(marked(issue.body));
   content.push('</div>');
-  content.push('<div class="post-comments">');
-  content.push('Loading ' + issue.comments + ' comments...');
   content.push('</div>');
-  content.push('</div>');
-  parent.innerHTML = content.join('');
+
+  parent.innerHTML += content.join('');
 
   if (issue.comments) {
+    var commentContainer = document.createElement('div');
+    commentContainer.className = 'post-comments';
+    commentContainer.innerHTML = 'Loading ' + issue.comments + ' comments...';
+
+    parent.appendChild(commentContainer);
+    
     github._request('GET', issue.comments_url, {}, function (error, data) {
       if (error)
         return;
 
-      var commentContainer = document.querySelector('.post-comments');
       commentContainer.innerHTML = '';
 
       var comments = [];
@@ -81,6 +84,7 @@ function render() {
       if (error || !issues)
         return;
 
+      document.querySelector('.threads').innerHTML = '';
       issues.sort(order).forEach(generate);
     });
 }
