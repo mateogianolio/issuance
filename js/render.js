@@ -36,7 +36,8 @@ function generate(issue) {
     content.push('</span>');
   });
   content.push('</div>');
-  content.push('<div class="post-meta-date">');
+  content.push('<div class="post-meta">');
+  content.push('by <a href="' + issue.user.html_url + '">' + issue.user.login + '</a>, ');
   content.push(new Date(issue.created_at).toLocaleDateString());
   content.push('</div>');
   content.push('<div class="post-body' + (search ? ' active' : '') + '" onclick="this.classList.toggle(\'active\');">');
