@@ -2,36 +2,35 @@
 
 <html>
   <head>
-    <title>Openblog</title>
+    <title>Open blog</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Blogging with Github issues.">
 
-    <link rel="stylesheet" type="text/css" href="css/github.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/structure.css">
+    <link rel="stylesheet" type="text/css" href="css/typography.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Serif">
 
-    <script src="https://github.com/michael/github/raw/master/dist/github.bundle.min.js"></script>
-    <script src="https://github.com/chjj/marked/raw/master/marked.min.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="js/lib/github.bundle.min.js"></script>
+    <script src="js/lib/marked.min.js"></script>
 
     <script src="js/globals.js"></script>
-    <script src="js/render.js"></script>
+    <script src="js/node.js"></script>
+    <script src="js/blog.js"></script>
   </head>
-  <body onload="render()">
+  <body>
     <div class="header">
       <h1 class="title">
-        <a href="index.html">
-          <strong>open</strong>blog
-        </a>
+        <a href="index.html"><strong>openblog</strong></a>
       </h1>
-      <iframe
-        class="fork-button"
-        src="https://ghbtns.com/github-btn.html?user=mateogianolio&repo=openblog&type=fork&count=true&size=large"
-        frameborder="0"
-        scrolling="0"
-        width="158px"
-        height="30px">
-      </iframe>
+      <blockquote class="description">
+        Open, free blogging on <strong>Github pages</strong> with <strong>Github issues</strong>.
+      </blockquote>
     </div>
-    <div class="threads">Loading...</div>
+    <div class="posts">
+      <div class="loading">
+        Loading...
+      </div>
+    </div>
   </body>
 </html>

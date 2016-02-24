@@ -1,0 +1,76 @@
+body { line-height: 1.5; }
+
+blockquote:before {
+  position: absolute;
+  content: "\bb";
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: -.5rem;
+  margin-left: -1rem;
+  color: #008c9e;
+}
+blockquote {
+  color: #9e9e9e;
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  border-bottom: 1px solid #fafafa;
+}
+.header>.title {
+  font-family: 'PT Serif', serif;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.posts {}
+.posts>.loading {}
+
+.post { font-family: 'PT Serif', serif; }
+.post>.title {
+  font-size: 1.75rem;
+  line-height: 1;
+  color: #000;
+}
+
+.post>.meta {
+  font-size: .75rem;
+  color: #9E9E9E;
+}
+.post>.meta>a { color: #008c9e; }
+
+.post>.categories {
+  font-family: 'PT Serif', serif;
+  font-size: .75rem;
+  color: #9e9e9e;
+}
+.post>.categories>span {
+  font-weight: bold;
+}
+
+.post>.body {
+  font-size: 1rem;
+}
+.post>.body a {
+  color: #008c9e;
+}
+
+.comments {
+  font-size: .9rem;
+}
+.comments>a {
+  color: #008c9e;
+}
+.comments>.comment>.author {
+  font-weight: bold;
+}
+.comments>.comment>.date {
+  font-size: .75rem;
+  color: #9E9E9E;
+}

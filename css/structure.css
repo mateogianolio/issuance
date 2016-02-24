@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+table * { border: none; }
+
+p, ul, ol, blockquote {
+  margin-bottom: 1rem !important;
+}
+
+li {
+  margin-left: 3rem;
+}
+
+pre {
+  padding: 8px !important;
+  border: 1px solid #efefef !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+}
+
+code {
+  padding: 4px;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+pre>code {
+  background: transparent;
+}
+
+.header {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.header>.title {
+  margin-right: 20px;
+}
+
+.posts {}
+.posts>.loading {}
+
+.post {
+  margin-bottom: 40px;
+}
+
+.post>.title {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.post>.meta {
+  margin-left: 8px;
+  margin-bottom: 10px;
+}
+
+.post>.categories {
+  margin-left: 8px;
+}
+.post>.categories>span {
+  vertical-align: top;
+}
+
+.post>.body {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #fafafa;
+  border-bottom: 1px solid #fafafa;
+}
+.post>.body>*:last-child {
+  margin-bottom: 1rem;
+}
+
+.comments {}
+.comments *:first-child { margin-top: 0 !important; }
+.comments *:last-child { margin-bottom: 0 !important; }
+.comments>.comment {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #fafafa;
+}
+.comments>.comment>.author {
+  margin-right: 8px;
+}
+.comments>.comment>.body {
+  margin-top: 8px;
+}
+.comments>.comment>.body>:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
