@@ -2,35 +2,129 @@
 
 <html>
   <head>
-    <title>Open blog</title>
+    <title>Issuance</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="css/structure.css">
     <link rel="stylesheet" type="text/css" href="css/typography.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Serif">
-
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <script src="js/lib/github.bundle.min.js"></script>
-    <script src="js/lib/marked.min.js"></script>
 
-    <script src="js/globals.js"></script>
-    <script src="js/node.js"></script>
-    <script src="js/blog.js"></script>
+    <script type="module">
+      import { React, ReactDOM } from 'https://unpkg.com/es-react@16.12.0/dev';
+      import htm from 'https://unpkg.com/htm?module'
+      import { endpoint } from "https://cdn.pika.dev/@octokit/endpoint";;
+      import marked from 'https://unpkg.com/marked@0.8.0/lib/marked.esm.js';
+
+      const html = htm.bind(React.createElement)
+
+      const Header = (props) => {
+        return html`
+          <div className="header">
+            <h1 className="title">
+              <a href="index.html"><strong>issuance</strong></a>
+            </h1>
+            <p className="description">
+              Open, free blogging on <strong>Github pages</strong> with <strong>Github issues</strong>.
+            </p>
+          </div>
+        `;
+      }
+
+      const Posts = (props) => {
+        const [issues, setIssues] = React.useState();
+
+        React.useEffect(() => {
+          async function fetchIssues() {
+            if (!issues) {
+              const { url, ...options } = endpoint("GET /repos/:owner/:repo/issues", {
+                owner: "mateogianolio",
+                repo: "issuance",
+              });
+              const res = await fetch(url, options);
+              setIssues(await res.json());
+            }
+          }
+
+          fetchIssues();
+        }, [issues]);
+
+        const {
+          search,
+        } = window.location;
+
+        return html`
+          <div className="posts">
+            ${(issues || [])
+              .filter(({ user }) => user.login === 'mateogianolio')
+              .filter(({ number }) => !search || Number(search.slice(1)) === number)
+              .map(({
+                number,
+                title,
+                labels,
+                user,
+                created_at,
+                comments,
+                body,
+              }) => html`
+                <div
+                  className="post"
+                  id={${number}}
+                  key={${number}}
+                >
+                  <h1 className="title">
+                    <a href="?${number}">
+                      ${title}
+                    </a>
+                  </h1>
+                  ${labels.length > 0 && html`
+                    <div className="categories">
+                      in
+                      ${labels.map((label) => html`
+                        <span
+                          key="${label.id}"
+                          style=${{ color: '#' + label.color, padding: '0 .25em' }}
+                        >
+                          ${label.name}
+                        </span>
+                      `)}
+                    </div>
+                  `}
+                  <div className="meta">
+                    <span>by </span>
+                    <a href="${user.html_url}">${user.login}</a>
+                    <span>, </span>
+                    <span>${new Date(created_at).toLocaleDateString()} </span>
+                    ${comments
+                      ? html`
+                        <a href="?${number}">
+                          ${comments} comment(s)
+                        </a>
+                      `
+                      : null
+                    }
+                  </div>
+                  <div
+                    className="body"
+                    dangerouslySetInnerHTML="${{ __html: marked(body).replace(/<pre>/g, '<pre class="prettyprint">')}}"
+                  />
+                </div>
+              `)}
+          </div>
+        `
+      }
+
+      ReactDOM.render(
+        html`
+          <${Header} />
+          <${Posts} />
+        `,
+        document.querySelector('#issuance')
+      )
+    </script>
   </head>
   <body>
-    <div class="header">
-      <h1 class="title">
-        <a href="index.html"><strong>openblog</strong></a>
-      </h1>
-      <p class="description">
-        Open, free blogging on <strong>Github pages</strong> with <strong>Github issues</strong>.
-      </p>
-    </div>
-    <div class="posts">
-      <div class="loading">
-        Loading...
-      </div>
-    </div>
+    <div id="issuance" />
   </body>
 </html>
