@@ -4,11 +4,15 @@
 
 ### Quick setup
 
-1. Fork [this repository](https://github.com/mateogianolio/openblog).
-2. Create a Github personal access token with **no scope**.
-3. Open `index.html` and ammend the parameters to endpoint with one's username, repo, and append `, auth: '<GITHUB_TOKEN>'`with the token you just created.
+1. Fork this repository.
+2. Open `index.html` and change `owner` and `repo` fields (https://github.com/mateogianolio/issuance/blob/6868a93cd8f5e148662b11dfbad991f82c898cdc/index.html#L42-L43) and the issue login filter (https://github.com/mateogianolio/issuance/blob/gh-pages/index.html#L61) to match your username/repo.
+3. Enable Github Pages in your repo settings if not already enabled.
 
 Link to individual posts by appending `?<issue_number>` to `index.html`.
+
+### Rate limiting
+
+The Github API enforces a rate limit of 60 requests per hour per IP address (see [#17](https://github.com/mateogianolio/issuance/issues/17)).
 
 ### Live examples
 
